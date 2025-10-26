@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ninja Prompt AI - Reverse AI Generated Content</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🕵️‍♂️ Ninja Prompt AI</h1>
+            <p>Extract detailed prompts from AI-generated videos</p>
+        </header>
+
+        <div class="upload-section">
+            <div class="tab-buttons">
+                <button class="tab-btn active" data-tab="url">Video URL</button>
+                <button class="tab-btn" data-tab="upload">Upload Video</button>
+            </div>
+
+            <div class="tab-content">
+                <!-- URL Input Tab -->
+                <div id="url-tab" class="tab-pane active">
+                    <div class="input-group">
+                        <input type="text" id="video-url" placeholder="Paste YouTube, Instagram, or TikTok URL...">
+                        <select id="platform-select">
+                            <option value="auto">Auto Detect</option>
+                            <option value="youtube">YouTube</option>
+                            <option value="instagram">Instagram</option>
+                            <option value="tiktok">TikTok</option>
+                        </select>
+                    </div>
+                    <button id="analyze-url" class="analyze-btn">Analyze Video</button>
+                </div>
+
+                <!-- Upload Tab -->
+                <div id="upload-tab" class="tab-pane">
+                    <div class="upload-area" id="upload-area">
+                        <div class="upload-placeholder">
+                            <span>📁</span>
+                            <p>Drag & drop video file or click to browse</p>
+                            <small>Supported formats: MP4, MOV, AVI, WebM (Max 100MB)</small>
+                        </div>
+                        <input type="file" id="file-input" accept="video/*" hidden>
+                    </div>
+                    <button id="analyze-upload" class="analyze-btn" disabled>Analyze Uploaded Video</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="results-section" id="results-section" style="display: none;">
+            <h3>🎯 Extracted Prompt</h3>
+            <div class="prompt-result">
+                <textarea id="prompt-output" readonly></textarea>
+                <button id="copy-prompt" class="copy-btn">Copy Prompt</button>
+            </div>
+            
+            <div class="video-preview">
+                <h4>Video Preview</h4>
+                <video id="video-preview" controls></video>
+            </div>
+
+            <div class="analysis-details">
+                <h4>📊 Analysis Details</h4>
+                <div id="analysis-details"></div>
+            </div>
+        </div>
+
+        <div class="loading" id="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Analyzing video content... This may take a few moments.</p>
+        </div>
+
+        <footer>
+            <p>Ninja Prompt AI - No login required • Free to use</p>
+        </footer>
+    </div>
+
+    <script src="ai-analyzer.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
